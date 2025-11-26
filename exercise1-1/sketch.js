@@ -47,7 +47,9 @@ function draw() {
  * centreX would be 100
  * centreY would be 125
  */
-function convertCornerToCenter(coordinate, dimension) {
+function convertCornerToCenter(coordinate, dimension) 
+{
+    coordinate = ((dimension/2) + coordinate)
     return coordinate;
 }
 
@@ -66,7 +68,9 @@ function convertCornerToCenter(coordinate, dimension) {
  * cornerX would be 0
  * cornerY would be 100
  */
-function convertCenterToCorner(coordinate, dimension) {
+function convertCenterToCorner(coordinate, dimension) 
+{
+    coordinate = (coordinate - (dimension/2))
     return coordinate;
 }
 
@@ -98,9 +102,15 @@ function convertCoordToIndex(x, y, areaWidth) {
  */
 function testCoordinateConversion() {
     // Tests for convert cornerToCenter() - WRITE AT LEAST TWO TESTS
-    
+    let test1 = cornerToCenter(0,200);
+    console.log("cornerToCenter(0,200) should return 100", test1)
+    let test2 = cornerToCenter(100,50);
+    console.log("cornerToCenter(100,50) should return 125", test2) 
     // Tests for convertCenterToCorner() - WRITE AT LEAST TWO TESTS
-
+    let test3 = convertCenterToCorner(100,200);
+    console.log("convertCenterToCorner(100,200) should retun 0", test3)
+    let test4 = convertCenterToCorner(125,50)
+    console.log("convertCenterToCorner(125,50) should return 100",test4)
     // Tests for convertCoordinateToIndeX()
     let test5 = convertCoordToIndex(0, 0, 100); // The simplest case
     console.log("convertCoordinateToIndex(0, 0, 100) should return 0", test5);
